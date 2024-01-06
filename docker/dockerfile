@@ -1,0 +1,20 @@
+FROM osrf/ros:noetic-desktop-full
+
+# workspace setup
+
+ENV WS /workspace
+ENV ROS_DISTRO noetic
+RUN echo "source ${WS}/install/setup.bash" >> ~/.bashrc
+RUN echo "cd /workspace" >> ~/.bashrc
+
+# Install ROS pkgs 
+
+RUN apt update -y
+
+RUN DEBIAN_FRONTEND=noninteractive apt install -y vim emacs nano
+
+RUN DEBIAN_FRONTEND=noninteractive apt install -y ros-${ROS_DISTRO}-gazebo-ros
+RUN DEBIAN_FRONTEND=noninteractive apt install -y ros-${ROS_DISTRO}-gazebo-msgs
+RUN DEBIAN_FRONTEND=noninteractive apt install -y ros-${ROS_DISTRO}-gazebo-plugins
+
+RUN DEBIAN_FRONTEND=noninteractive apt install -y ros-${ROS_DISTRO}-joint-state-publisher-gui
