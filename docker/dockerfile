@@ -4,7 +4,7 @@ FROM osrf/ros:noetic-desktop-full
 
 ENV WS /workspace
 ENV ROS_DISTRO noetic
-RUN echo "source ${WS}/install/setup.bash" >> ~/.bashrc
+RUN echo "source ${WS}/devel/setup.bash" >> ~/.bashrc
 RUN echo "cd /workspace" >> ~/.bashrc
 
 # Install ROS pkgs 
