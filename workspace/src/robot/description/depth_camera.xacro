@@ -26,7 +26,6 @@
     <link name="camera_link_optical"></link>
 
 
-
     <gazebo reference="camera_link">
         <material>Gazebo/Black</material>
 
@@ -50,8 +49,56 @@
                 <frame_name>camera_link_optical</frame_name>
                 <min_depth>0.1</min_depth>
                 <max_depth>100.0</max_depth>
+                <hackBaseline>0.07</hackBaseline>
+                <distortionK1>0.0</distortionK1>
+                <distortionK2>0.0</distortionK2>
+                <distortionK3>0.0</distortionK3>
+                <distortionT1>0.0</distortionT1>
+                <distortionT2>0.0</distortionT2>
             </plugin>
         </sensor>
     </gazebo>
+
+    <gazebo reference="camera_link">
+        <sensor name="depth_camera" type="depth">
+          <update_rate>20</update_rate>
+          <camera>
+            <horizontal_fov>1.047198</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>20.0</far>
+            </clip>
+          </camera>
+          <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <baseline>0.2</baseline>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>20.0</updateRate>
+            <cameraName>depth_camera</cameraName>
+            <imageTopicName>/color/image_raw</imageTopicName>
+            <cameraInfoTopicName>/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/depth/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>/depth/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>/depth/points</pointCloudTopicName>
+            <frameName>depth_frame</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+          </plugin>
+        </sensor>
+      </gazebo>
 
 </robot>

@@ -27,7 +27,7 @@
             
             <publishOdom>true</publishOdom>
             <publishOdomTF>true</publishOdomTF>
-            <publishWheelTF>true</publishWheelTF>
+            <publishWheelTF>false</publishWheelTF>
             <publishWheelJointState>true</publishWheelJointState>
         
         </plugin>
