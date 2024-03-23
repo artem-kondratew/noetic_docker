@@ -1,2 +1,7 @@
 .git
-workspace/*
+.vscode
+workspace/build
+workspace/logs
+workspace/devel
+workspace/.catkin_tools
+workspace/venv
