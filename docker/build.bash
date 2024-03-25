@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-docker build -t noetic --network=host .
+docker build -t custom_noetic --network=host .

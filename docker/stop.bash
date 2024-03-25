@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-docker stop "noetic" > /dev/null
+docker stop "custom_noetic" > /dev/null

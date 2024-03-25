@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-docker exec -it "noetic" /bin/bash
+docker exec -it "custom_noetic" /bin/bash
