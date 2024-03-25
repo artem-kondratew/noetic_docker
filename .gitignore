@@ -1,7 +1,10 @@
 .git
 .vscode
+workspace/bag
 workspace/build
 workspace/logs
 workspace/devel
 workspace/.catkin_tools
 workspace/venv
+workspace/src/motion_detector/images
+workspace/yolov8n-seg.pt
